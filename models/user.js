@@ -1,4 +1,4 @@
-import { schema, model, models } from 'mongoose';
+import { Schema, model, models } from 'mongoose';
 
 const UserSchema = new Schema({
 
@@ -20,3 +20,9 @@ const UserSchema = new Schema({
         type: String,
     }
 })
+
+// Check if the user model is there, if not, create a new model
+
+const User = models.User || model("User", UserSchema);
+
+export default User;
