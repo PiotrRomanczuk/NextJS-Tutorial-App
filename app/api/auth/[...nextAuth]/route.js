@@ -2,10 +2,10 @@ import NextAuth from "next-auth";
 import GoogleProvider from 'next-auth/providers/google';
 import { connectToDatabase } from "@utils/database";
 
-// console.log({
-//     clientId: process.env.GOOGLE_ID,
-//     clientSecret: process.env.GOOGLE_CLIENT_SECRET
-// })
+console.log({
+    clientId: process.env.GOOGLE_ID,
+    clientSecret: process.env.GOOGLE_CLIENT_SECRET
+})
 
 const handler = NextAuth({
     providers: [
@@ -14,9 +14,9 @@ const handler = NextAuth({
             clientSecret: process.env.GOOGLE_CLIENT_SECRET,
         })
     ],
-    // async session({ session }) {
+    async session({ session }) {
 
-    // },
+    },
     async signIn({ profile }) {
         try {
             // serverLess route -> Lambda -> session
