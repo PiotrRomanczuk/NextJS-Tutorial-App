@@ -6,14 +6,16 @@ export const connectToDatabase = async () => {
 
     mongoose.set('strictQuery', true)
 
+    console.log(process.env.MONGO_DB_URI)
+
     if (isConnected) {
         console.log("Mongoose is already connected")
         return
     }
     
     try {
-        await mongoose.connect(process.env.MONGODB_URI,{
-            db_name: "Promptopia",
+        await mongoose.connect(process.env.MONGO_DB_URI, {
+            dbName: "Promptopia",
             useNewUrlParser: true,
             useUnifiedTopology: true
         })
